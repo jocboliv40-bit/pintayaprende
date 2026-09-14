@@ -74,6 +74,6 @@ export async function registerPwa(): Promise<void> {
       if (document.visibilityState === "visible") void reg.update().catch(() => {});
     });
   } catch (err) {
-    console.warn("[Pinturitas] No se pudo registrar el service worker:", err);
+    console.warn("[Pinta y Aprende] No se pudo registrar el service worker:", err);
   }
 }
