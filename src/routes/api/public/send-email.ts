@@ -15,7 +15,7 @@ import { createFileRoute } from "@tanstack/react-router";
  *
  * 1. Secretos requeridos (Project Settings → Secrets):
  *    - RESEND_API_KEY
- *    - RESEND_FROM_EMAIL      (ej: "Pinturitas <hola@pinturitas.app>")
+ *    - RESEND_FROM_EMAIL      (ej: "Pinta y Aprende <hola@tu-dominio.com>")
  *    - RESEND_SENDING_DOMAIN  (opcional, para logs)
  *    - SEND_EMAIL_SECRET      (header secreto para autorizar llamadas)
  *
