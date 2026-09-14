@@ -393,44 +393,67 @@ function LandingPage() {
         <p className="mt-2 text-sm text-ink-soft">— El equipo de Pinta y Aprende</p>
       </section>
 
-      {/* PLANES (2) */}
-      <section id="planes" className="mx-auto max-w-4xl px-4 py-16">
+      {/* PAGO ÚNICO POR SINPE */}
+      <section id="planes" className="mx-auto max-w-2xl px-4 py-16">
         <div className="mb-3 text-center">
-          <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">Un precio, todo incluido</h2>
+          <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">Un solo pago, todo incluido</h2>
           <p className="mx-auto mt-3 max-w-xl text-ink-soft">
-            Los dos planes dan exactamente lo mismo. Al pagar anual, ahorras la mitad.
+            Sin mensualidades ni renovaciones. Pagas una vez y el acceso queda abierto.
           </p>
         </div>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {PLANS.map((p) => (
-            <div key={p.name} className={`relative rounded-3xl border-2 bg-surface p-6 shadow-soft ${p.best ? "border-primary" : "border-border"}`}>
-              {p.tag && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-0.5 text-[11px] font-bold text-primary-foreground">
-                  {p.tag}
+
+        <div className="mt-8 rounded-3xl border-2 border-primary bg-surface p-6 shadow-soft sm:p-8">
+          <span className="inline-block rounded-full bg-primary px-3 py-0.5 text-[11px] font-bold text-primary-foreground">
+            Pago único
+          </span>
+          <div className="mt-3 flex items-end gap-2">
+            <span className="font-display text-5xl font-bold text-ink">{SINPE.price}</span>
+            <span className="pb-2 text-sm text-ink-soft">una sola vez</span>
+          </div>
+
+          <ul className="mt-5 space-y-1.5 text-sm text-ink">
+            {PLAN_FEATURES.map((f) => (
+              <li key={f} className="flex gap-2"><span className="text-secondary">✓</span> {f}</li>
+            ))}
+          </ul>
+
+          <div className="mt-6 rounded-2xl bg-muted p-5">
+            <div className="font-display text-lg font-bold text-ink">Cómo pagar por SINPE Móvil</div>
+            <ol className="mt-3 space-y-3 text-sm text-ink">
+              <li className="flex gap-3">
+                <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">1</span>
+                <span>
+                  Envía <strong>{SINPE.price}</strong> por SINPE Móvil al número{" "}
+                  <strong className="whitespace-nowrap">{SINPE.phone}</strong> ({SINPE.holder}).
                 </span>
-              )}
-              <div className="font-display text-lg font-bold text-ink">{p.name}</div>
-              <div className="mt-2 flex items-end gap-1">
-                <span className="font-display text-4xl font-bold text-ink">${p.price}</span>
-                <span className="pb-1 text-sm text-ink-soft">{p.per}</span>
-              </div>
-              <div className="min-h-[20px] text-xs text-ink-soft">{p.note}</div>
-              <ul className="mt-4 space-y-1.5 text-sm text-ink">
-                {PLAN_FEATURES.map((f) => (
-                  <li key={f} className="flex gap-2"><span className="text-secondary">✓</span> {f}</li>
-                ))}
-              </ul>
-              <button type="button" className={`mt-5 block w-full rounded-2xl py-3 text-center font-display font-bold active:scale-95 ${p.best ? "bg-primary text-primary-foreground shadow-crayon" : "border border-border text-ink"}`}>
-                Suscribirme
-              </button>
-            </div>
-          ))}
+              </li>
+              <li className="flex gap-3">
+                <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">2</span>
+                <span>
+                  En el <strong>detalle</strong> de la transferencia escribe el{" "}
+                  <strong>nombre de tu hijo o hija</strong>. Así sabemos para quién es la cuenta.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">3</span>
+                <span>Te creamos la cuenta y te enviamos los datos para entrar.</span>
+              </li>
+            </ol>
+          </div>
+
+          <a
+            href={`sms:${SINPE.phone}`}
+            className="mt-5 block w-full rounded-2xl bg-primary py-3.5 text-center font-display font-bold text-primary-foreground shadow-crayon active:scale-95"
+          >
+            Pagar por SINPE al {SINPE.phone}
+          </a>
         </div>
+
         <p className="mt-5 flex items-center justify-center gap-1.5 text-center text-sm font-semibold text-secondary">
-          <span>✓</span> Cancela cuando quieras, sin permanencia ni letra chica.
+          <span>✓</span> Un solo pago. No se cobra nada después.
         </p>
         <p className="mt-2 text-center text-sm text-ink-soft">
-          El acceso es solo para suscriptores. ¿Ya tienes cuenta?{" "}
+          ¿Ya pagaste y tienes cuenta?{" "}
           <Link to="/auth" className="font-semibold text-primary">Entra aquí</Link>.
         </p>
       </section>
