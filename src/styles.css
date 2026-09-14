@@ -131,7 +131,7 @@
 /* PAPEL de coloreo: SIEMPRE blanco. No se invierte en modo oscuro. */
 @utility canvas-paper {
   background-color: #FFFFFF;
-  color: #2A2118;
+  color: #1F2937;
 }
 
 @layer base {
