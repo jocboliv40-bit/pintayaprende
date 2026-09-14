@@ -129,7 +129,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
  * aparezca en claro y luego salte a oscuro. Se ejecuta al parsear el HTML,
  * antes de que React hidrate. Debe usar la misma clave que ThemeProvider.
  */
-const THEME_INIT = `(function(){try{var t=localStorage.getItem('pinturitas.theme');var d=t==='dark'||((!t||t==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches);var e=document.documentElement;e.classList.toggle('dark',d);e.style.colorScheme=d?'dark':'light';}catch(e){}})();`;
+const THEME_INIT = `(function(){try{var t=localStorage.getItem('pinta-y-aprende.theme');var d=t==='dark'||((!t||t==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches);var e=document.documentElement;e.classList.toggle('dark',d);e.style.colorScheme=d?'dark':'light';}catch(e){}})();`;
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
