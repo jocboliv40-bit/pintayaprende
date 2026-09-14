@@ -1,5 +1,5 @@
 /**
- * Registro del service worker de Pinturitas.
+ * Registro del service worker de Pinta y Aprende.
  *
  * Regla dura: NUNCA se registra en la preview de Lovable ni en desarrollo.
  * Solo se activa en el sitio publicado. Si detecta un entorno de preview,
