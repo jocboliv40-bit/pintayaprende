@@ -153,7 +153,7 @@ function LandingPage() {
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a href="#planes" className="rounded-2xl bg-primary px-7 py-4 font-display text-lg font-bold text-primary-foreground shadow-crayon active:scale-95">
-                Ver los planes
+                Comprar por ₡5000
               </a>
               <a href="#beneficios" className="rounded-2xl border border-border px-6 py-4 font-display font-bold text-ink hover:bg-surface">
                 ¿Por qué funciona?
