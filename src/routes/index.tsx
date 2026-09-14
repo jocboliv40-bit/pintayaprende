@@ -101,7 +101,8 @@ const FAQS = [
   { q: "¿Yo necesito saber inglés?", a: "No. Cada palabra se pronuncia sola dentro de la app, en inglés y en español, con la pronunciación escrita para que tu hijo también la diga." },
   { q: "¿De verdad aprende o solo se entretiene?", a: "Aprende jugando. Al colorear escucha y repite la palabra, la asocia a la imagen y al color. Es la forma más natural de adquirir vocabulario a esta edad — y tú ves su avance en el panel de padres." },
   { q: "¿Tiene anuncios o compras dentro del juego?", a: "No. No hay publicidad ni enlaces externos en la zona del niño. Los pagos viven detrás de una puerta para adultos." },
-  { q: "¿Puedo cancelar cuando quiera?", a: "Sí. Cancelas cuando quieras desde la zona de padres, sin permanencia ni penalizaciones. Mantienes el acceso hasta que termine el periodo que ya pagaste." },
+  { q: "¿Hay mensualidades?", a: "No. Es un solo pago de ₡5000 por SINPE Móvil. No hay renovaciones ni cobros después." },
+  { q: "¿Cómo pago?", a: "Por SINPE Móvil al 63336652 (Jose Bolivar). En el detalle de la transferencia escribes el nombre de tu hijo o hija y con eso te creamos la cuenta." },
   { q: "¿Funciona sin internet?", a: "Los mundos que ya visitaste quedan disponibles sin conexión, y lo que pinta se guarda al recuperar la señal." },
   { q: "¿Puedo tener varios hijos en una cuenta?", a: "Sí, hasta 4 perfiles, cada uno con su propio progreso y galería." },
 ];
