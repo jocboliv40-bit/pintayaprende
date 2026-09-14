@@ -466,8 +466,8 @@ function LandingPage() {
           <h2 className="mt-2 font-display text-2xl font-bold text-ink">Sin riesgo, sin ataduras</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-3">
             {[
-              ["Cancela cuando quieras", "Sin permanencia ni letra chica."],
-              ["Tú tienes el control", "Gestionas tu suscripción cuando lo decidas."],
+              ["Un solo pago", "₡5000 una vez. No se cobra nada después."],
+              ["Sin tarjeta", "Pagas por SINPE Móvil, como a cualquier persona."],
               ["Acceso completo", "Desde el primer día, los 33 mundos."],
             ].map(([t, b]) => (
               <div key={t}>
