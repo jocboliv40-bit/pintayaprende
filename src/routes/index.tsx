@@ -77,23 +77,13 @@ const BENEFITS = [
   ["📚", "Amor por aprender", "Asocia el inglés con algo que disfruta. Aprender deja de ser una tarea y se convierte en su juego favorito."],
 ];
 
-const PLANS = [
-  {
-    name: "Mensual",
-    price: "4.99",
-    per: "al mes",
-    note: "Cancela cuando quieras.",
-    best: false,
-  },
-  {
-    name: "Anual",
-    price: "29.99",
-    per: "al año",
-    note: "Equivale a $2.50/mes · Ahorras casi $30 al año.",
-    best: true,
-    tag: "Ahorra 50%",
-  },
-];
+/** Pago único por SINPE Móvil (Costa Rica). */
+export const SINPE = {
+  price: "₡5000",
+  phone: "63336652",
+  holder: "Jose Bolivar",
+};
+
 
 const PLAN_FEATURES = [
   "Los 33 mundos completos (630+ láminas)",
