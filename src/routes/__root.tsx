@@ -84,18 +84,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover",
       },
-      { name: "theme-color", content: "#FF7A3D" },
+      { name: "theme-color", content: "#2F7FEA" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "apple-mobile-web-app-status-bar-style", content: "default" },
-      { name: "apple-mobile-web-app-title", content: "Pinturitas" },
+      { name: "apple-mobile-web-app-title", content: "Pinta y Aprende" },
       { name: "mobile-web-app-capable", content: "yes" },
-      { title: "Pinturitas · Colorea y aprende inglés" },
+      { title: "Pinta y Aprende · Colorea y aprende inglés" },
       {
         name: "description",
         content:
           "Libro para colorear digital que enseña vocabulario en inglés a niños de 3 a 7 años.",
       },
-      { property: "og:title", content: "Pinturitas · Colorea y aprende inglés" },
+      { property: "og:title", content: "Pinta y Aprende · Colorea y aprende inglés" },
       {
         property: "og:description",
         content:
@@ -107,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: "/icon-512.png" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/icon-512.png" },
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
