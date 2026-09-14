@@ -10,7 +10,7 @@ type ThemeContextValue = {
 };
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
-const STORAGE_KEY = "pinturitas.theme";
+const STORAGE_KEY = "pinta-y-aprende.theme";
 
 function resolveSystem(): Resolved {
   if (typeof window === "undefined") return "light";
