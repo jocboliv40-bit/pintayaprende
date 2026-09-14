@@ -77,23 +77,13 @@ const BENEFITS = [
   ["📚", "Amor por aprender", "Asocia el inglés con algo que disfruta. Aprender deja de ser una tarea y se convierte en su juego favorito."],
 ];
 
-const PLANS = [
-  {
-    name: "Mensual",
-    price: "4.99",
-    per: "al mes",
-    note: "Cancela cuando quieras.",
-    best: false,
-  },
-  {
-    name: "Anual",
-    price: "29.99",
-    per: "al año",
-    note: "Equivale a $2.50/mes · Ahorras casi $30 al año.",
-    best: true,
-    tag: "Ahorra 50%",
-  },
-];
+/** Pago único por SINPE Móvil (Costa Rica). */
+export const SINPE = {
+  price: "₡5000",
+  phone: "63336652",
+  holder: "Jose Bolivar",
+};
+
 
 const PLAN_FEATURES = [
   "Los 33 mundos completos (630+ láminas)",
@@ -111,7 +101,8 @@ const FAQS = [
   { q: "¿Yo necesito saber inglés?", a: "No. Cada palabra se pronuncia sola dentro de la app, en inglés y en español, con la pronunciación escrita para que tu hijo también la diga." },
   { q: "¿De verdad aprende o solo se entretiene?", a: "Aprende jugando. Al colorear escucha y repite la palabra, la asocia a la imagen y al color. Es la forma más natural de adquirir vocabulario a esta edad — y tú ves su avance en el panel de padres." },
   { q: "¿Tiene anuncios o compras dentro del juego?", a: "No. No hay publicidad ni enlaces externos en la zona del niño. Los pagos viven detrás de una puerta para adultos." },
-  { q: "¿Puedo cancelar cuando quiera?", a: "Sí. Cancelas cuando quieras desde la zona de padres, sin permanencia ni penalizaciones. Mantienes el acceso hasta que termine el periodo que ya pagaste." },
+  { q: "¿Hay mensualidades?", a: "No. Es un solo pago de ₡5000 por SINPE Móvil. No hay renovaciones ni cobros después." },
+  { q: "¿Cómo pago?", a: "Por SINPE Móvil al 63336652 (Jose Bolivar). En el detalle de la transferencia escribes el nombre de tu hijo o hija y con eso te creamos la cuenta." },
   { q: "¿Funciona sin internet?", a: "Los mundos que ya visitaste quedan disponibles sin conexión, y lo que pinta se guarda al recuperar la señal." },
   { q: "¿Puedo tener varios hijos en una cuenta?", a: "Sí, hasta 4 perfiles, cada uno con su propio progreso y galería." },
 ];
@@ -139,7 +130,7 @@ function LandingPage() {
               {appLabel}
             </Link>
             <a href="#planes" className="rounded-full bg-primary px-5 py-2.5 font-display text-sm font-bold text-primary-foreground shadow-crayon active:scale-95">
-              Suscribirme
+              Comprar
             </a>
           </div>
         </nav>
@@ -162,7 +153,7 @@ function LandingPage() {
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a href="#planes" className="rounded-2xl bg-primary px-7 py-4 font-display text-lg font-bold text-primary-foreground shadow-crayon active:scale-95">
-                Ver los planes
+                Comprar por ₡5000
               </a>
               <a href="#beneficios" className="rounded-2xl border border-border px-6 py-4 font-display font-bold text-ink hover:bg-surface">
                 ¿Por qué funciona?
@@ -403,44 +394,67 @@ function LandingPage() {
         <p className="mt-2 text-sm text-ink-soft">— El equipo de Pinta y Aprende</p>
       </section>
 
-      {/* PLANES (2) */}
-      <section id="planes" className="mx-auto max-w-4xl px-4 py-16">
+      {/* PAGO ÚNICO POR SINPE */}
+      <section id="planes" className="mx-auto max-w-2xl px-4 py-16">
         <div className="mb-3 text-center">
-          <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">Un precio, todo incluido</h2>
+          <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">Un solo pago, todo incluido</h2>
           <p className="mx-auto mt-3 max-w-xl text-ink-soft">
-            Los dos planes dan exactamente lo mismo. Al pagar anual, ahorras la mitad.
+            Sin mensualidades ni renovaciones. Pagas una vez y el acceso queda abierto.
           </p>
         </div>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {PLANS.map((p) => (
-            <div key={p.name} className={`relative rounded-3xl border-2 bg-surface p-6 shadow-soft ${p.best ? "border-primary" : "border-border"}`}>
-              {p.tag && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-0.5 text-[11px] font-bold text-primary-foreground">
-                  {p.tag}
+
+        <div className="mt-8 rounded-3xl border-2 border-primary bg-surface p-6 shadow-soft sm:p-8">
+          <span className="inline-block rounded-full bg-primary px-3 py-0.5 text-[11px] font-bold text-primary-foreground">
+            Pago único
+          </span>
+          <div className="mt-3 flex items-end gap-2">
+            <span className="font-display text-5xl font-bold text-ink">{SINPE.price}</span>
+            <span className="pb-2 text-sm text-ink-soft">una sola vez</span>
+          </div>
+
+          <ul className="mt-5 space-y-1.5 text-sm text-ink">
+            {PLAN_FEATURES.map((f) => (
+              <li key={f} className="flex gap-2"><span className="text-secondary">✓</span> {f}</li>
+            ))}
+          </ul>
+
+          <div className="mt-6 rounded-2xl bg-muted p-5">
+            <div className="font-display text-lg font-bold text-ink">Cómo pagar por SINPE Móvil</div>
+            <ol className="mt-3 space-y-3 text-sm text-ink">
+              <li className="flex gap-3">
+                <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">1</span>
+                <span>
+                  Envía <strong>{SINPE.price}</strong> por SINPE Móvil al número{" "}
+                  <strong className="whitespace-nowrap">{SINPE.phone}</strong> ({SINPE.holder}).
                 </span>
-              )}
-              <div className="font-display text-lg font-bold text-ink">{p.name}</div>
-              <div className="mt-2 flex items-end gap-1">
-                <span className="font-display text-4xl font-bold text-ink">${p.price}</span>
-                <span className="pb-1 text-sm text-ink-soft">{p.per}</span>
-              </div>
-              <div className="min-h-[20px] text-xs text-ink-soft">{p.note}</div>
-              <ul className="mt-4 space-y-1.5 text-sm text-ink">
-                {PLAN_FEATURES.map((f) => (
-                  <li key={f} className="flex gap-2"><span className="text-secondary">✓</span> {f}</li>
-                ))}
-              </ul>
-              <button type="button" className={`mt-5 block w-full rounded-2xl py-3 text-center font-display font-bold active:scale-95 ${p.best ? "bg-primary text-primary-foreground shadow-crayon" : "border border-border text-ink"}`}>
-                Suscribirme
-              </button>
-            </div>
-          ))}
+              </li>
+              <li className="flex gap-3">
+                <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">2</span>
+                <span>
+                  En el <strong>detalle</strong> de la transferencia escribe el{" "}
+                  <strong>nombre de tu hijo o hija</strong>. Así sabemos para quién es la cuenta.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">3</span>
+                <span>Te creamos la cuenta y te enviamos los datos para entrar.</span>
+              </li>
+            </ol>
+          </div>
+
+          <a
+            href={`sms:${SINPE.phone}`}
+            className="mt-5 block w-full rounded-2xl bg-primary py-3.5 text-center font-display font-bold text-primary-foreground shadow-crayon active:scale-95"
+          >
+            Pagar por SINPE al {SINPE.phone}
+          </a>
         </div>
+
         <p className="mt-5 flex items-center justify-center gap-1.5 text-center text-sm font-semibold text-secondary">
-          <span>✓</span> Cancela cuando quieras, sin permanencia ni letra chica.
+          <span>✓</span> Un solo pago. No se cobra nada después.
         </p>
         <p className="mt-2 text-center text-sm text-ink-soft">
-          El acceso es solo para suscriptores. ¿Ya tienes cuenta?{" "}
+          ¿Ya pagaste y tienes cuenta?{" "}
           <Link to="/auth" className="font-semibold text-primary">Entra aquí</Link>.
         </p>
       </section>
@@ -452,8 +466,8 @@ function LandingPage() {
           <h2 className="mt-2 font-display text-2xl font-bold text-ink">Sin riesgo, sin ataduras</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-3">
             {[
-              ["Cancela cuando quieras", "Sin permanencia ni letra chica."],
-              ["Tú tienes el control", "Gestionas tu suscripción cuando lo decidas."],
+              ["Un solo pago", "₡5000 una vez. No se cobra nada después."],
+              ["Sin tarjeta", "Pagas por SINPE Móvil, como a cualquier persona."],
               ["Acceso completo", "Desde el primer día, los 33 mundos."],
             ].map(([t, b]) => (
               <div key={t}>
@@ -489,13 +503,13 @@ function LandingPage() {
           Su ventaja empieza <span className="text-primary">hoy</span>
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-lg text-ink-soft">
-          Elige tu plan y desbloquea los 33 mundos para que tu hijo pinte su primera palabra en inglés.
+          Con un solo pago de ₡5000 desbloqueas los 33 mundos para que tu hijo pinte su primera palabra en inglés.
         </p>
         <p className="mx-auto mt-3 max-w-lg font-display text-xl font-bold text-primary">
           El inglés deja de ser tarea y se vuelve su juego favorito.
         </p>
         <a href="#planes" className="mt-8 inline-block rounded-2xl bg-primary px-9 py-4 font-display text-lg font-bold text-primary-foreground shadow-crayon active:scale-95">
-          Suscríbete ahora
+          Comprar por ₡5000
         </a>
       </section>
 
