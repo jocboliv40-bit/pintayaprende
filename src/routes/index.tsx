@@ -130,7 +130,7 @@ function LandingPage() {
               {appLabel}
             </Link>
             <a href="#planes" className="rounded-full bg-primary px-5 py-2.5 font-display text-sm font-bold text-primary-foreground shadow-crayon active:scale-95">
-              Suscribirme
+              Comprar
             </a>
           </div>
         </nav>
