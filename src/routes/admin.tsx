@@ -24,7 +24,7 @@ import {
 
 export const Route = createFileRoute("/admin")({
   component: AdminPage,
-  head: () => ({ meta: [{ title: "Administración · Pinturitas" }] }),
+  head: () => ({ meta: [{ title: "Administración · Pinta y Aprende" }] }),
 });
 
 const STATUSES: SubStatus[] = ["activa", "pendiente", "vencida", "cancelada"];

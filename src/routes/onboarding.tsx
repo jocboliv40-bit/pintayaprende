@@ -8,7 +8,7 @@ export const Route = createFileRoute("/onboarding")({
   component: OnboardingPage,
   head: () => ({
     meta: [
-      { title: "Comencemos · Pinturitas" },
+      { title: "Comencemos · Pinta y Aprende" },
       { name: "description", content: "Crea el primer perfil de tu peque en pocos pasos." },
     ],
   }),
@@ -51,7 +51,7 @@ function OnboardingPage() {
       <div className="w-full max-w-md">
         <div className="mb-6 text-center">
           <div className="mx-auto mb-3 grid h-16 w-16 place-items-center rounded-3xl bg-primary text-3xl shadow-crayon">🎨</div>
-          <h1 className="font-display text-3xl font-bold text-ink">¡Bienvenido a Pinturitas!</h1>
+          <h1 className="font-display text-3xl font-bold text-ink">¡Bienvenido a Pinta y Aprende!</h1>
           <p className="mt-1 text-ink-soft">Creemos el perfil de tu peque para empezar.</p>
         </div>
 

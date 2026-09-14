@@ -19,7 +19,7 @@ export const Route = createFileRoute("/_app/padres/planes")({
   component: PlanesPage,
   head: () => ({
     meta: [
-      { title: "Planes · Pinturitas" },
+      { title: "Planes · Pinta y Aprende" },
       { name: "description", content: "Elige el plan que mejor se ajuste a tu familia." },
     ],
   }),

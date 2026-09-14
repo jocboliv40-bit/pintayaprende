@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_app/galeria")({
   component: GaleriaPage,
   head: () => ({
     meta: [
-      { title: "Mi Galería · Pinturitas" },
+      { title: "Mi Galería · Pinta y Aprende" },
       { name: "description", content: "Todos tus dibujos terminados en un solo lugar." },
     ],
   }),

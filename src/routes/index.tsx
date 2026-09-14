@@ -8,13 +8,13 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
   head: () => ({
     meta: [
-      { title: "Pinturitas · Aprende inglés dibujando" },
+      { title: "Pinta y Aprende · Aprende inglés dibujando" },
       {
         name: "description",
         content:
           "Aprender inglés nunca fue tan divertido. Tu hijo aprende inglés dibujando con el dedo, jugando y sin frustraciones. Para niños de 3 a 7 años: suscríbete y desbloquea los 33 mundos.",
       },
-      { property: "og:title", content: "Pinturitas · Aprende inglés dibujando" },
+      { property: "og:title", content: "Pinta y Aprende · Aprende inglés dibujando" },
       {
         property: "og:description",
         content: "Aprender inglés nunca fue tan divertido: tu hijo pinta con el dedo, escucha la palabra y la aprende jugando. Fácil y sin frustraciones. 3 a 7 años.",
@@ -132,7 +132,7 @@ function LandingPage() {
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
             <img src="/brand/app-icon.png" alt="" className="h-9 w-9 rounded-xl object-cover" onError={hideImg} />
-            <span className="font-display text-xl font-bold text-primary">Pinturitas</span>
+            <span className="font-display text-xl font-bold text-primary">Pinta y Aprende</span>
           </div>
           <div className="flex items-center gap-2">
             <Link to="/auth" className="rounded-full px-4 py-2 font-display text-sm font-bold text-ink-soft hover:text-ink">
@@ -207,7 +207,7 @@ function LandingPage() {
         </h2>
         <p className="mt-4 text-lg text-ink-soft">
           Entre los 3 y los 7 años, el cerebro de tu hijo vive su etapa más receptiva para los idiomas: absorbe
-          sonidos y palabras con una naturalidad que después cuesta mucho más lograr. Pinturitas aprovecha justo
+          sonidos y palabras con una naturalidad que después cuesta mucho más lograr. Pinta y Aprende aprovecha justo
           esa ventana — y lo hace <strong className="text-ink">jugando</strong>, cuando su curiosidad está más despierta.
         </p>
         <p className="mt-3 font-display text-xl font-bold text-primary">
@@ -277,7 +277,7 @@ function LandingPage() {
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="font-display text-3xl font-bold sm:text-4xl">El tiempo de pantalla, sin culpa</h2>
           <p className="mt-4 text-lg opacity-95">
-            Sabemos lo que es ceder la tablet y sentir que pierdes la batalla. Con Pinturitas, esos minutos dejan
+            Sabemos lo que es ceder la tablet y sentir que pierdes la batalla. Con Pinta y Aprende, esos minutos dejan
             de ser tiempo vacío: tu hijo colorea tranquilo mientras aprende algo que le servirá toda la vida.
           </p>
           <p className="mt-3 font-display text-xl font-bold">Tú respiras. Él crece.</p>
@@ -392,7 +392,7 @@ function LandingPage() {
       {/* NUESTRA MISIÓN */}
       <section className="mx-auto max-w-3xl px-4 py-16 text-center">
         <div className="text-4xl">💛</div>
-        <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">Por qué hicimos Pinturitas</h2>
+        <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">Por qué hicimos Pinta y Aprende</h2>
         <p className="mt-4 text-lg text-ink-soft">
           Creemos que las horas frente a una pantalla pueden ser algo más que ruido y colores que pasan. Nacimos
           con una idea simple: convertir el rato favorito de tu hijo —colorear— en su primera puerta al inglés, en
@@ -400,7 +400,7 @@ function LandingPage() {
           y una palabra nueva cada día.
         </p>
         <p className="mt-4 font-display text-lg font-bold text-primary">Ese es todo nuestro propósito.</p>
-        <p className="mt-2 text-sm text-ink-soft">— El equipo de Pinturitas</p>
+        <p className="mt-2 text-sm text-ink-soft">— El equipo de Pinta y Aprende</p>
       </section>
 
       {/* PLANES (2) */}
@@ -504,7 +504,7 @@ function LandingPage() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-8 text-sm text-ink-soft sm:flex-row">
           <div className="flex items-center gap-2">
             <img src="/brand/app-icon.png" alt="" className="h-7 w-7 rounded-lg object-cover" onError={hideImg} />
-            <span className="font-display font-bold text-ink">Pinturitas</span>
+            <span className="font-display font-bold text-ink">Pinta y Aprende</span>
           </div>
           <p>Colorea y aprende inglés · 3 a 7 años</p>
           <Link to="/auth" className="font-display font-bold text-primary">{appLabel}</Link>

@@ -10,7 +10,7 @@ export const Route = createFileRoute("/perfil-nino")({
   component: ChildProfilePage,
   head: () => ({
     meta: [
-      { title: "Elige tu perfil · Pinturitas" },
+      { title: "Elige tu perfil · Pinta y Aprende" },
       { name: "description", content: "Elige qué peque va a pintar hoy." },
     ],
   }),

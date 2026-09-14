@@ -1,4 +1,4 @@
-# Pinturitas — Plan de construcción por fases
+# Pinta y Aprende — Plan de construcción por fases
 
 Es un proyecto grande. Como pediste guía paso a paso, lo dividiré en **fases pequeñas**. Al terminar cada una te muestro qué quedó y espero tu "sigue" antes de continuar. Todo el contenido de UI en español neutro; los identificadores en inglés.
 

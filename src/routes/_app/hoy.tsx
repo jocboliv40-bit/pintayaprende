@@ -8,7 +8,7 @@ export const Route = createFileRoute("/_app/hoy")({
   component: HoyPage,
   head: () => ({
     meta: [
-      { title: "Hoy · Pinturitas" },
+      { title: "Hoy · Pinta y Aprende" },
       { name: "description", content: "Tu sesión de hoy: colorea y aprende una palabra nueva." },
     ],
   }),

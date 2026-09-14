@@ -1,4 +1,4 @@
-# Plantillas de correo — Pinturitas
+# Plantillas de correo — Pinta y Aprende
 
 Plantillas HTML en español neutro con la identidad "Caja de Crayones".
 
