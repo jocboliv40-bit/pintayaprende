@@ -18,11 +18,11 @@ Cada archivo usa la sintaxis `{{variable}}` para inyectar datos desde
 
 ## Identidad visual
 
-- Fondo del correo: `#FFF6EE` (papel).
+- Fondo del correo: `#FFF9F5` (papel).
 - Tarjeta blanca centrada, 600px máx.
 - Título: Fredoka (fallback a Georgia y serif).
 - Cuerpo: Nunito (fallback a Helvetica y sans-serif).
-- Primario mandarina `#FF7A3D`, secundario turquesa `#17B8B0`.
+- Primario azul vivo `#2F7FEA`, secundario verde vivo `#46B45C`.
 - Botones con `border-radius: 16px` y padding generoso.
 
 Todas las plantillas deben tener versión "dark-mode safe" mediante
