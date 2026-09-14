@@ -503,13 +503,13 @@ function LandingPage() {
           Su ventaja empieza <span className="text-primary">hoy</span>
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-lg text-ink-soft">
-          Elige tu plan y desbloquea los 33 mundos para que tu hijo pinte su primera palabra en inglés.
+          Con un solo pago de ₡5000 desbloqueas los 33 mundos para que tu hijo pinte su primera palabra en inglés.
         </p>
         <p className="mx-auto mt-3 max-w-lg font-display text-xl font-bold text-primary">
           El inglés deja de ser tarea y se vuelve su juego favorito.
         </p>
         <a href="#planes" className="mt-8 inline-block rounded-2xl bg-primary px-9 py-4 font-display text-lg font-bold text-primary-foreground shadow-crayon active:scale-95">
-          Suscríbete ahora
+          Comprar por ₡5000
         </a>
       </section>
 
