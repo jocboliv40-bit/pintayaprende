@@ -7,10 +7,10 @@ export const Route = createFileRoute("/reset-password")({
   ssr: false,
   head: () => ({
     meta: [
-      { title: "Restablecer contraseña · Pinturitas" },
-      { name: "description", content: "Elige una nueva contraseña para tu cuenta de Pinturitas." },
-      { property: "og:title", content: "Restablecer contraseña · Pinturitas" },
-      { property: "og:description", content: "Elige una nueva contraseña para tu cuenta de Pinturitas." },
+      { title: "Restablecer contraseña · Pinta y Aprende" },
+      { name: "description", content: "Elige una nueva contraseña para tu cuenta de Pinta y Aprende." },
+      { property: "og:title", content: "Restablecer contraseña · Pinta y Aprende" },
+      { property: "og:description", content: "Elige una nueva contraseña para tu cuenta de Pinta y Aprende." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

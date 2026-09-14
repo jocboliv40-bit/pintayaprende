@@ -6,8 +6,8 @@ export const Route = createFileRoute("/auth")({
   component: AuthPage,
   head: () => ({
     meta: [
-      { title: "Entrar · Pinturitas" },
-      { name: "description", content: "Inicia sesión en tu cuenta de Pinturitas." },
+      { title: "Entrar · Pinta y Aprende" },
+      { name: "description", content: "Inicia sesión en tu cuenta de Pinta y Aprende." },
     ],
   }),
 });
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/auth")({
 type Mode = "login" | "reset";
 
 /**
- * Acceso a Pinturitas. SOLO para suscriptores: no hay registro libre.
+ * Acceso a Pinta y Aprende. SOLO para suscriptores: no hay registro libre.
  * Las cuentas se crean al contratar una suscripción (pasarela conectada
  * más adelante). Aquí solo se inicia sesión o se recupera la contraseña.
  */
@@ -60,7 +60,7 @@ function AuthPage() {
           <Link to="/" className="mx-auto mb-3 grid h-16 w-16 place-items-center rounded-3xl bg-primary text-3xl shadow-crayon">
             🎨
           </Link>
-          <h1 className="font-display text-3xl font-bold text-ink">Pinturitas</h1>
+          <h1 className="font-display text-3xl font-bold text-ink">Pinta y Aprende</h1>
           <p className="mt-1 text-sm text-ink-soft">Colorea y aprende inglés</p>
         </div>
 

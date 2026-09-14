@@ -1,6 +1,6 @@
-# Installer Kit · Pinturitas
+# Installer Kit · Pinta y Aprende
 
-Todo lo necesario para levantar el backend de **Pinturitas** desde cero en un
+Todo lo necesario para levantar el backend de **Pinta y Aprende** desde cero en un
 proyecto Supabase nuevo: estructura, seguridad, funciones y **todo el
 contenido** (33 mundos, 634 láminas con su traducción y pronunciación, la
 paleta de 24 colores y los planes).

@@ -21,7 +21,7 @@ export function Sidebar() {
     <aside className="hidden md:flex md:w-64 md:shrink-0 md:flex-col md:border-r md:border-border md:bg-surface md:p-6">
       <Link to="/hoy" className="mb-8 flex items-center gap-3">
         <img src="/icon-512.png" alt="" className="size-10 rounded-xl" />
-        <span className="font-display text-2xl text-primary">Pinturitas</span>
+        <span className="font-display text-2xl text-primary">Pinta y Aprende</span>
       </Link>
       <nav aria-label="Navegación principal">
         <ul className="space-y-1">

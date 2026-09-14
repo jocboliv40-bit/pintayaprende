@@ -15,7 +15,7 @@ export const Route = createFileRoute("/_app/padres/progreso")({
   component: ProgresoPage,
   head: () => ({
     meta: [
-      { title: "Progreso · Pinturitas" },
+      { title: "Progreso · Pinta y Aprende" },
       { name: "description", content: "Progreso de tu peque: palabras, dibujos y logros." },
     ],
   }),

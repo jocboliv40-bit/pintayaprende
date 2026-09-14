@@ -16,7 +16,7 @@ export const Route = createFileRoute("/_app/padres/ajustes")({
   component: AjustesPage,
   head: () => ({
     meta: [
-      { title: "Ajustes · Pinturitas" },
+      { title: "Ajustes · Pinta y Aprende" },
       { name: "description", content: "Preferencias de la app y de la cuenta." },
     ],
   }),

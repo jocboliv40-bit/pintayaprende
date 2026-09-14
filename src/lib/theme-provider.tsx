@@ -10,7 +10,7 @@ type ThemeContextValue = {
 };
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
-const STORAGE_KEY = "pinturitas.theme";
+const STORAGE_KEY = "pinta-y-aprende.theme";
 
 function resolveSystem(): Resolved {
   if (typeof window === "undefined") return "light";
@@ -32,7 +32,7 @@ function readStored(): Theme {
 /**
  * Proveedor de tema. Por defecto sigue al sistema del dispositivo.
  * El interruptor manual vive en Ajustes (Zona de Padres) y persiste
- * la elección en localStorage bajo la clave "pinturitas.theme".
+ * la elección en localStorage bajo la clave "pinta-y-aprende.theme".
  * El primer pintado lo resuelve el script inline de <head> (ver __root),
  * para que no haya parpadeo claro→oscuro al cargar.
  */

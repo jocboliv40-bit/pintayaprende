@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
- * Pinturitas — Design system "Caja de Crayones"
+ * Pinta y Aprende — Design system "Colores Vivos"
  *
  * Todos los colores y sombras viven aquí como tokens.
  * Los componentes NUNCA deben hardcodear colores (nada de text-white,
@@ -56,18 +56,18 @@
   --shadow-soft: 0 2px 8px -2px rgb(0 0 0 / 0.08);
 }
 
-/* Tema claro — Caja de Crayones */
+/* Tema claro — Colores Vivos */
 :root {
-  --paper: #FFF6EE;
+  --paper: #FFF9F5;
   --surface: #FFFFFF;
-  --border: #F0E2D4;
-  --primary: #FF7A3D;
+  --border: #F0E8E0;
+  --primary: #2F7FEA;
   --primary-foreground: #FFFFFF;
-  --secondary: #17B8B0;
+  --secondary: #46B45C;
   --secondary-foreground: #FFFFFF;
   --achievement: #FFC43D;
-  --ink: #2A2118;
-  --ink-soft: #7A6A5C;
+  --ink: #1F2937;
+  --ink-soft: #6B7280;
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -75,7 +75,7 @@
   --card-foreground: var(--ink);
   --popover: var(--surface);
   --popover-foreground: var(--ink);
-  --muted: #F7EFE6;
+  --muted: #F7F0EA;
   --muted-foreground: var(--ink-soft);
   --accent: var(--secondary);
   --accent-foreground: #FFFFFF;
@@ -87,16 +87,16 @@
 
 /* Tema oscuro */
 .dark {
-  --paper: #1A1613;
-  --surface: #241E1A;
-  --border: #3A2F27;
-  --primary: #FF8F5C;
-  --primary-foreground: #1A1613;
-  --secondary: #17B8B0;
-  --secondary-foreground: #1A1613;
-  --achievement: #FFC43D;
-  --ink: #F5EDE5;
-  --ink-soft: #B8A99B;
+  --paper: #111827;
+  --surface: #1F2937;
+  --border: #374151;
+  --primary: #4B9BFF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #5FD46A;
+  --secondary-foreground: #111827;
+  --achievement: #FFD15C;
+  --ink: #F9FAFB;
+  --ink-soft: #9CA3AF;
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -104,12 +104,12 @@
   --card-foreground: var(--ink);
   --popover: var(--surface);
   --popover-foreground: var(--ink);
-  --muted: #2E2620;
+  --muted: #374151;
   --muted-foreground: var(--ink-soft);
   --accent: var(--secondary);
-  --accent-foreground: #1A1613;
-  --destructive: #E63946;
-  --destructive-foreground: #FFFFFF;
+  --accent-foreground: #111827;
+  --destructive: #F87171;
+  --destructive-foreground: #111827;
   --input: var(--border);
   --ring: var(--primary);
 }
@@ -131,7 +131,7 @@
 /* PAPEL de coloreo: SIEMPRE blanco. No se invierte en modo oscuro. */
 @utility canvas-paper {
   background-color: #FFFFFF;
-  color: #2A2118;
+  color: #1F2937;
 }
 
 @layer base {

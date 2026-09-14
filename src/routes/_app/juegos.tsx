@@ -16,7 +16,7 @@ export const Route = createFileRoute("/_app/juegos")({
   component: JuegosPage,
   head: () => ({
     meta: [
-      { title: "Juegos · Pinturitas" },
+      { title: "Juegos · Pinta y Aprende" },
       { name: "description", content: "Juega y repasa las palabras que aprendiste en inglés." },
     ],
   }),

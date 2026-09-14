@@ -9,7 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
  * app leen de aquí para que el progreso y la galería sean por niño.
  */
 
-const STORAGE_KEY = "pinturitas.activeChild";
+const STORAGE_KEY = "pinta-y-aprende.activeChild";
 
 type ChildContextValue = {
   children: Child[];

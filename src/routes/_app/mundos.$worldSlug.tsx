@@ -6,7 +6,7 @@ export const Route = createFileRoute("/_app/mundos/$worldSlug")({
   component: WorldDetailPage,
   head: ({ params }) => ({
     meta: [
-      { title: `${params.worldSlug} · Pinturitas` },
+      { title: `${params.worldSlug} · Pinta y Aprende` },
       { name: "description", content: "Elige una lámina para colorear y aprender." },
     ],
   }),

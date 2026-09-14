@@ -11,7 +11,7 @@ export const Route = createFileRoute("/_app/padres/")({
   component: PadresPage,
   head: () => ({
     meta: [
-      { title: "Zona de Padres · Pinturitas" },
+      { title: "Zona de Padres · Pinta y Aprende" },
       { name: "description", content: "Planes y ajustes de la cuenta." },
     ],
   }),

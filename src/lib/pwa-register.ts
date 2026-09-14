@@ -1,5 +1,5 @@
 /**
- * Registro del service worker de Pinturitas.
+ * Registro del service worker de Pinta y Aprende.
  *
  * Regla dura: NUNCA se registra en la preview de Lovable ni en desarrollo.
  * Solo se activa en el sitio publicado. Si detecta un entorno de preview,
@@ -74,6 +74,6 @@ export async function registerPwa(): Promise<void> {
       if (document.visibilityState === "visible") void reg.update().catch(() => {});
     });
   } catch (err) {
-    console.warn("[Pinturitas] No se pudo registrar el service worker:", err);
+    console.warn("[Pinta y Aprende] No se pudo registrar el service worker:", err);
   }
 }

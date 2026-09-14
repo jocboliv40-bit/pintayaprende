@@ -32,7 +32,7 @@ export const Route = createFileRoute("/_app/coloreo/$drawingSlug")({
   component: ColoringStudioPage,
   head: ({ params }) => ({
     meta: [
-      { title: `Colorear ${params.drawingSlug} · Pinturitas` },
+      { title: `Colorear ${params.drawingSlug} · Pinta y Aprende` },
       { name: "description", content: "Colorea, escucha y aprende una nueva palabra en inglés." },
     ],
   }),

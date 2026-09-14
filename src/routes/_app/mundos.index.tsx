@@ -6,7 +6,7 @@ export const Route = createFileRoute("/_app/mundos/")({
   component: WorldsPage,
   head: () => ({
     meta: [
-      { title: "Mundos · Pinturitas" },
+      { title: "Mundos · Pinta y Aprende" },
       { name: "description", content: "Elige un mundo y colorea sus láminas." },
     ],
   }),
