@@ -84,6 +84,11 @@ export const SINPE = {
   holder: "Jose Bolivar",
 };
 
+/** Link de WhatsApp para iniciar la compra: mismo número del SINPE. */
+const WHATSAPP_URL =
+  "https://wa.me/50663336652?text=" +
+  encodeURIComponent("Hola, quiero comprar Pinta y Aprende (₡5000)");
+
 
 const PLAN_FEATURES = [
   "Los 33 mundos completos (630+ láminas)",
@@ -143,7 +148,7 @@ function LandingPage() {
             <Link to="/hoy" className="rounded-full px-4 py-2 font-display text-sm font-bold text-ink-soft hover:text-ink">
               {appLabel}
             </Link>
-            <a href="#planes" className="rounded-full bg-primary px-5 py-2.5 font-display text-sm font-bold text-primary-foreground shadow-crayon active:scale-95">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="rounded-full bg-primary px-5 py-2.5 font-display text-sm font-bold text-primary-foreground shadow-crayon active:scale-95">
               Comprar
             </a>
           </div>
@@ -166,7 +171,7 @@ function LandingPage() {
               aprender todos los días. Una ventaja que le durará toda la vida.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a href="#planes" className="rounded-2xl bg-primary px-7 py-4 font-display text-lg font-bold text-primary-foreground shadow-crayon active:scale-95">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-primary px-7 py-4 font-display text-lg font-bold text-primary-foreground shadow-crayon active:scale-95">
                 Comprar por ₡5000
               </a>
               <a href="#beneficios" className="rounded-2xl border border-border px-6 py-4 font-display font-bold text-ink hover:bg-surface">
@@ -528,7 +533,7 @@ function LandingPage() {
         <p className="mx-auto mt-3 max-w-lg font-display text-xl font-bold text-primary">
           El inglés deja de ser tarea y se vuelve su juego favorito.
         </p>
-        <a href="#planes" className="mt-8 inline-block rounded-2xl bg-primary px-9 py-4 font-display text-lg font-bold text-primary-foreground shadow-crayon active:scale-95">
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-8 inline-block rounded-2xl bg-primary px-9 py-4 font-display text-lg font-bold text-primary-foreground shadow-crayon active:scale-95">
           Comprar por ₡5000
         </a>
       </section>
