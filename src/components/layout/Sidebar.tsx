@@ -1,14 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Sun, Map, Gamepad2, Images, Lock, Shield } from "lucide-react";
+import { Home, Lock, Shield } from "lucide-react";
 import { fetchMyRole, isAdminRole } from "@/lib/admin";
 
 const tabs = [
-  { to: "/hoy", label: "Hoy", icon: Sun },
-  { to: "/mundos", label: "Mundos", icon: Map },
-  { to: "/juegos", label: "Juegos", icon: Gamepad2 },
-  { to: "/galeria", label: "Galería", icon: Images },
-  { to: "/padres", label: "Padres", icon: Lock },
+  { to: "/hoy", label: "Inicio", icon: Home },
+  { to: "/padres", label: "Para papás", icon: Lock },
 ] as const;
 
 /** Sidebar de escritorio (>=md). Reemplaza al tab bar inferior. */
@@ -20,8 +17,8 @@ export function Sidebar() {
   return (
     <aside className="hidden md:flex md:w-64 md:shrink-0 md:flex-col md:border-r md:border-border md:bg-surface md:p-6">
       <Link to="/hoy" className="mb-8 flex items-center gap-3">
-        <img src="/icon-512.png" alt="" className="size-10 rounded-xl" />
-        <span className="font-display text-2xl text-primary">Pinta y Aprende</span>
+        <span className="text-3xl">🐢</span>
+        <span className="font-display text-2xl text-primary">TUTI</span>
       </Link>
       <nav aria-label="Navegación principal">
         <ul className="space-y-1">
@@ -38,7 +35,7 @@ export function Sidebar() {
             </li>
           ))}
           {showAdmin && (
-            <li className="mt-2 border-t border-border pt-2">
+            <li>
               <Link
                 to="/admin"
                 className="flex items-center gap-3 rounded-xl px-4 py-3 text-base font-semibold text-ink-soft transition-colors hover:bg-muted"

@@ -87,19 +87,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#2F7FEA" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "apple-mobile-web-app-status-bar-style", content: "default" },
-      { name: "apple-mobile-web-app-title", content: "Pinta y Aprende" },
+      { name: "apple-mobile-web-app-title", content: "TUTI" },
       { name: "mobile-web-app-capable", content: "yes" },
-      { title: "Pinta y Aprende · Colorea y aprende inglés" },
+      { title: "TUTI · ¡Aprendé jugando!" },
       {
         name: "description",
         content:
-          "Libro para colorear digital que enseña vocabulario en inglés a niños de 3 a 7 años.",
+          "TUTI: inglés, matemáticas y español jugando, para niños de 3 a 7 años en Costa Rica.",
       },
-      { property: "og:title", content: "Pinta y Aprende · Colorea y aprende inglés" },
+      { property: "og:title", content: "TUTI · ¡Aprendé jugando!" },
       {
         property: "og:description",
         content:
-          "Libro para colorear digital que enseña vocabulario en inglés a niños de 3 a 7 años.",
+          "TUTI: inglés, matemáticas y español jugando, para niños de 3 a 7 años en Costa Rica.",
       },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "es_MX" },
