@@ -78,12 +78,12 @@ grant execute on function public.admin_update_password(uuid,text) to authenticat
 -- ---------- catálogo: solo lectura ----------
 create policy worlds_read_authenticated on public.worlds
   for select to authenticated using (true);
--- Las láminas son el producto: solo se entregan a quien tiene la suscripción
--- activa (los administradores siempre pasan). El (select ...) hace que la
--- comprobación se evalúe una vez por consulta y no una vez por fila.
-create policy drawings_read_subscribed on public.drawings
-  for select to authenticated
-  using ((select public.has_active_subscription(auth.uid())));
+-- Las láminas ya no dependen de una suscripción en la base de datos: el
+-- acceso al producto se controla con el código simple (?codigo=...) que
+-- guarda cada dispositivo, no con esta tabla. Por eso cualquier usuario
+-- autenticado (incluida la sesión anónima de cada celular) puede leerlas.
+create policy drawings_read_authenticated on public.drawings
+  for select to authenticated using (true);
 create policy palette_colors_read_authenticated on public.palette_colors
   for select to authenticated using (true);
 create policy achievements_read_authenticated on public.achievements
