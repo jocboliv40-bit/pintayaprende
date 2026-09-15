@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { ColoringCanvas, type ColoringCanvasHandle } from "@/components/coloring/ColoringCanvas";
 import { speak } from "@/lib/speech";
+import { tryUnlockFromUrl } from "@/lib/simple-access";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -86,11 +87,11 @@ export const SINPE = {
 
 /** Link de WhatsApp para iniciar la compra: mismo número del SINPE. */
 const WHATSAPP_PHONE = "50663336652";
-function buildWhatsappUrl(deviceCode: string | null): string {
-  const base = "Hola, quiero comprar Pinta y Aprende (₡5000) y hacer el SINPE Móvil.";
-  const withCode = deviceCode ? `${base} Mi código de dispositivo es: ${deviceCode}` : base;
-  return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(withCode)}`;
-}
+const WHATSAPP_URL =
+  "https://wa.me/" +
+  WHATSAPP_PHONE +
+  "?text=" +
+  encodeURIComponent("Hola, quiero comprar Pinta y Aprende (₡5000) y hacer el SINPE Móvil.");
 
 
 const PLAN_FEATURES = [
@@ -110,7 +111,7 @@ const FAQS = [
   { q: "¿De verdad aprende o solo se entretiene?", a: "Aprende jugando. Al colorear escucha y repite la palabra, la asocia a la imagen y al color. Es la forma más natural de adquirir vocabulario a esta edad — y tú ves su avance en el panel de padres." },
   { q: "¿Tiene anuncios o compras dentro del juego?", a: "No. No hay publicidad ni enlaces externos en la zona del niño. Los pagos viven detrás de una puerta para adultos." },
   { q: "¿Hay mensualidades?", a: "No. Es un solo pago de ₡5000 por SINPE Móvil. No hay renovaciones ni cobros después." },
-  { q: "¿Cómo pago?", a: "Por SINPE Móvil al 63336652 (Jose Bolivar). Nos mandas el comprobante y el código de tu dispositivo por WhatsApp, y activamos tu acceso ahí mismo, sin cuentas ni contraseñas." },
+  { q: "¿Cómo pago?", a: "Escríbenos por WhatsApp, paga por SINPE Móvil al 63336652 (Jose Bolivar) y mándanos el comprobante. Te devolvemos un link para instalar la app, sin cuentas ni contraseñas." },
   { q: "¿Funciona sin internet?", a: "Los mundos que ya visitaste quedan disponibles sin conexión, y lo que pinta se guarda al recuperar la señal." },
   { q: "¿Puedo tener varios hijos en una cuenta?", a: "Sí, hasta 4 perfiles, cada uno con su propio progreso y galería." },
 ];
@@ -119,25 +120,16 @@ const FAQS = [
 
 function LandingPage() {
   const [authed, setAuthed] = useState(false);
-  const [deviceCode, setDeviceCode] = useState<string | null>(null);
 
-  // Sin cuentas con correo/clave: cada dispositivo tiene una sesión anónima
-  // propia. Este código corto (derivado de esa sesión) es lo que el cliente
-  // manda por WhatsApp junto al comprobante, para que quien vende sepa a cuál
-  // dispositivo activarle el acceso.
+  // El link puede traer ?codigo=XXXX (el que manda el vendedor por WhatsApp
+  // tras confirmar el pago); si coincide, la app queda desbloqueada en este
+  // dispositivo sin que el cliente escriba nada.
   useEffect(() => {
-    supabase.auth.getSession().then(async ({ data }) => {
-      let session = data.session;
-      if (!session) {
-        const { data: signIn } = await supabase.auth.signInAnonymously();
-        session = signIn.session;
-      }
-      setAuthed(!!session);
-      if (session?.user?.id) setDeviceCode(session.user.id.slice(-6).toUpperCase());
-    });
+    tryUnlockFromUrl();
+    supabase.auth.getSession().then(({ data }) => setAuthed(!!data.session));
   }, []);
   const appLabel = authed ? "Ir a mi app" : "Entrar";
-  const whatsappUrl = buildWhatsappUrl(deviceCode);
+  const whatsappUrl = WHATSAPP_URL;
 
   return (
     <div className="min-h-screen bg-paper text-ink">
@@ -442,33 +434,25 @@ function LandingPage() {
           </ul>
 
           <div className="mt-6 rounded-2xl bg-muted p-5">
-            <div className="font-display text-lg font-bold text-ink">Cómo pagar por SINPE Móvil</div>
+            <div className="font-display text-lg font-bold text-ink">Cómo comprar</div>
             <ol className="mt-3 space-y-3 text-sm text-ink">
               <li className="flex gap-3">
                 <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">1</span>
-                <span>
-                  Envía <strong>{SINPE.price}</strong> por SINPE Móvil al número{" "}
-                  <strong className="whitespace-nowrap">{SINPE.phone}</strong> ({SINPE.holder}).
-                </span>
+                <span>Escríbenos por WhatsApp y te confirmamos el precio.</span>
               </li>
               <li className="flex gap-3">
                 <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">2</span>
                 <span>
-                  Por WhatsApp, envía la captura del comprobante junto con el{" "}
-                  <strong>código de tu dispositivo</strong> y el nombre de tu hijo o hija.
+                  Envía <strong>{SINPE.price}</strong> por SINPE Móvil al número{" "}
+                  <strong className="whitespace-nowrap">{SINPE.phone}</strong> ({SINPE.holder}) y
+                  mándanos la captura del comprobante por WhatsApp.
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">3</span>
-                <span>En cuanto confirmemos el pago, tu app queda desbloqueada en este mismo aparato. No necesitas cuenta ni contraseña.</span>
+                <span>En cuanto confirmemos el pago, te mandamos un link para instalarla en tu celular. Sin cuenta ni contraseña.</span>
               </li>
             </ol>
-            {deviceCode && (
-              <div className="mt-4 rounded-xl border border-dashed border-primary/50 bg-surface p-3 text-center">
-                <div className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Código de tu dispositivo</div>
-                <div className="font-display text-2xl font-bold tracking-widest text-primary">{deviceCode}</div>
-              </div>
-            )}
           </div>
 
           <a
