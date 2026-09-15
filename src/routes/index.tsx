@@ -102,7 +102,7 @@ const FAQS = [
   { q: "¿De verdad aprende o solo se entretiene?", a: "Aprende jugando. Al colorear escucha y repite la palabra, la asocia a la imagen y al color. Es la forma más natural de adquirir vocabulario a esta edad — y tú ves su avance en el panel de padres." },
   { q: "¿Tiene anuncios o compras dentro del juego?", a: "No. No hay publicidad ni enlaces externos en la zona del niño. Los pagos viven detrás de una puerta para adultos." },
   { q: "¿Hay mensualidades?", a: "No. Es un solo pago de ₡5000 por SINPE Móvil. No hay renovaciones ni cobros después." },
-  { q: "¿Cómo pago?", a: "Por SINPE Móvil al 63336652 (Jose Bolivar). En el detalle de la transferencia escribes el nombre de tu hijo o hija y con eso te creamos la cuenta." },
+  { q: "¿Cómo pago?", a: "Por SINPE Móvil al 63336652 (Jose Bolivar). Nos mandas el comprobante y el código de tu dispositivo por WhatsApp, y activamos tu acceso ahí mismo, sin cuentas ni contraseñas." },
   { q: "¿Funciona sin internet?", a: "Los mundos que ya visitaste quedan disponibles sin conexión, y lo que pinta se guarda al recuperar la señal." },
   { q: "¿Puedo tener varios hijos en una cuenta?", a: "Sí, hasta 4 perfiles, cada uno con su propio progreso y galería." },
 ];
@@ -111,8 +111,22 @@ const FAQS = [
 
 function LandingPage() {
   const [authed, setAuthed] = useState(false);
+  const [deviceCode, setDeviceCode] = useState<string | null>(null);
+
+  // Sin cuentas con correo/clave: cada dispositivo tiene una sesión anónima
+  // propia. Este código corto (derivado de esa sesión) es lo que el cliente
+  // manda por WhatsApp junto al comprobante, para que quien vende sepa a cuál
+  // dispositivo activarle el acceso.
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setAuthed(!!data.session));
+    supabase.auth.getSession().then(async ({ data }) => {
+      let session = data.session;
+      if (!session) {
+        const { data: signIn } = await supabase.auth.signInAnonymously();
+        session = signIn.session;
+      }
+      setAuthed(!!session);
+      if (session?.user?.id) setDeviceCode(session.user.id.slice(-6).toUpperCase());
+    });
   }, []);
   const appLabel = authed ? "Ir a mi app" : "Entrar";
 
@@ -126,7 +140,7 @@ function LandingPage() {
             <span className="font-display text-xl font-bold text-primary">Pinta y Aprende</span>
           </div>
           <div className="flex items-center gap-2">
-            <Link to="/auth" className="rounded-full px-4 py-2 font-display text-sm font-bold text-ink-soft hover:text-ink">
+            <Link to="/hoy" className="rounded-full px-4 py-2 font-display text-sm font-bold text-ink-soft hover:text-ink">
               {appLabel}
             </Link>
             <a href="#planes" className="rounded-full bg-primary px-5 py-2.5 font-display text-sm font-bold text-primary-foreground shadow-crayon active:scale-95">
@@ -161,7 +175,7 @@ function LandingPage() {
             </div>
             <p className="mt-3 text-sm text-ink-soft">
               Acceso completo para toda la familia ·{" "}
-              <Link to="/auth" className="font-semibold text-primary">¿Ya tienes cuenta? Entra</Link>
+              <Link to="/hoy" className="font-semibold text-primary">¿Ya la compraste? Ábrela aquí</Link>
             </p>
           </div>
 
@@ -431,15 +445,21 @@ function LandingPage() {
               <li className="flex gap-3">
                 <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">2</span>
                 <span>
-                  En el <strong>detalle</strong> de la transferencia escribe el{" "}
-                  <strong>nombre de tu hijo o hija</strong>. Así sabemos para quién es la cuenta.
+                  Por WhatsApp, envía la captura del comprobante junto con el{" "}
+                  <strong>código de tu dispositivo</strong> y el nombre de tu hijo o hija.
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">3</span>
-                <span>Te creamos la cuenta y te enviamos los datos para entrar.</span>
+                <span>En cuanto confirmemos el pago, tu app queda desbloqueada en este mismo aparato. No necesitas cuenta ni contraseña.</span>
               </li>
             </ol>
+            {deviceCode && (
+              <div className="mt-4 rounded-xl border border-dashed border-primary/50 bg-surface p-3 text-center">
+                <div className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Código de tu dispositivo</div>
+                <div className="font-display text-2xl font-bold tracking-widest text-primary">{deviceCode}</div>
+              </div>
+            )}
           </div>
 
           <a
@@ -454,8 +474,8 @@ function LandingPage() {
           <span>✓</span> Un solo pago. No se cobra nada después.
         </p>
         <p className="mt-2 text-center text-sm text-ink-soft">
-          ¿Ya pagaste y tienes cuenta?{" "}
-          <Link to="/auth" className="font-semibold text-primary">Entra aquí</Link>.
+          ¿Ya pagaste?{" "}
+          <Link to="/hoy" className="font-semibold text-primary">Ábrela aquí</Link>.
         </p>
       </section>
 
@@ -521,7 +541,7 @@ function LandingPage() {
             <span className="font-display font-bold text-ink">Pinta y Aprende</span>
           </div>
           <p>Colorea y aprende inglés · 3 a 7 años</p>
-          <Link to="/auth" className="font-display font-bold text-primary">{appLabel}</Link>
+          <Link to="/hoy" className="font-display font-bold text-primary">{appLabel}</Link>
         </div>
       </footer>
     </div>

@@ -84,9 +84,14 @@ function AppLayout() {
   // la base de datos, que no entrega las láminas sin suscripción activa.
   const blocked = accessQ.data === false;
 
+  // Sin login visible: cada dispositivo entra solo, con una sesión anónima de
+  // Supabase. El resto de la app (suscripción, perfiles de niños) funciona
+  // igual, ligado a esa sesión en vez de a un email/contraseña.
   useEffect(() => {
-    if (status === "anon") navigate({ to: "/auth" });
-  }, [status, navigate]);
+    if (status === "anon") {
+      void supabase.auth.signInAnonymously();
+    }
+  }, [status]);
 
   useEffect(() => {
     if (status === "authenticated" && !blocked && kidsReady && kids.length === 0) {
@@ -121,13 +126,6 @@ function AppLayout() {
  * así que incluye las salidas: ver los planes y cerrar sesión.
  */
 function AccessPaused({ onRetry, checking }: { onRetry: () => void; checking: boolean }) {
-  const navigate = useNavigate();
-
-  async function logout() {
-    await supabase.auth.signOut();
-    navigate({ to: "/auth" });
-  }
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-6 safe-top safe-bottom">
       <div className="w-full max-w-md rounded-3xl border border-border bg-surface p-8 text-center shadow-crayon">
@@ -151,13 +149,6 @@ function AccessPaused({ onRetry, checking }: { onRetry: () => void; checking: bo
           className="mt-3 w-full rounded-2xl bg-muted py-3 text-sm font-semibold text-ink transition disabled:opacity-50"
         >
           {checking ? "Comprobando…" : "Ya reactivé mi suscripción"}
-        </button>
-
-        <button
-          onClick={logout}
-          className="mt-4 w-full text-center text-sm font-semibold text-ink-soft hover:text-ink"
-        >
-          Cerrar sesión
         </button>
       </div>
     </div>

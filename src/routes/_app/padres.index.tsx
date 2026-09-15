@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { fetchPlans } from "@/lib/queries";
@@ -31,15 +31,9 @@ function PadresPage() {
 }
 
 function ParentPanel() {
-  const navigate = useNavigate();
   const plansQ = useQuery({ queryKey: ["plans"], queryFn: fetchPlans });
   const { theme, setTheme } = useTheme();
   const plans = plansQ.data ?? [];
-
-  async function logout() {
-    await supabase.auth.signOut();
-    navigate({ to: "/auth" });
-  }
 
   const roleQ = useQuery({ queryKey: ["my-role"], queryFn: fetchMyRole, staleTime: 5 * 60 * 1000 });
 
@@ -135,13 +129,6 @@ function ParentPanel() {
               ))}
             </div>
           </div>
-
-          <button
-            onClick={logout}
-            className="w-full rounded-2xl border border-border py-3 font-display font-bold text-ink active:scale-95"
-          >
-            Cerrar sesión
-          </button>
         </div>
       </section>
     </div>
