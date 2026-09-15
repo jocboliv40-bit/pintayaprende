@@ -9,7 +9,7 @@ export const Route = createFileRoute("/_app/matematicas")({
   head: () => ({ meta: [{ title: "Matemáticas · TUTI" }] }),
 });
 
-const SUBJECT_COLOR = "#059669"; // verde, como el mar/bosque
+const SUBJECT_COLOR = "#7C3AED"; // morado, igual que el botón de Matemáticas
 
 function shuffle<T>(arr: T[]): T[] {
   return [...arr].sort(() => Math.random() - 0.5);

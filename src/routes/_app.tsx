@@ -80,7 +80,11 @@ function NeedsCode({ onUnlock }: { onUnlock: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-6 safe-top safe-bottom">
       <div className="w-full max-w-md rounded-3xl border border-border bg-surface p-8 text-center shadow-crayon">
-        <div className="mx-auto mb-4 text-6xl">🐢</div>
+        <img
+          src="/icon-tuti-512.png"
+          alt="Tuti"
+          className="mx-auto mb-4 size-20 rounded-full border-4 border-secondary object-cover shadow-soft"
+        />
         <h1 className="font-display text-2xl font-bold text-ink">Todavía no tienes acceso a TUTI</h1>
         <p className="mt-2 text-ink-soft">
           Compra por SINPE y te mandamos por WhatsApp un código para desbloquear la app en este

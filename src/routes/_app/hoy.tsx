@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { BookOpen, Divide, PenLine } from "lucide-react";
 import { speak } from "@/lib/speech";
 import { getStickers } from "@/lib/tuti-progress";
 
@@ -17,7 +18,7 @@ const MATERIAS = [
   {
     to: "/ingles" as const,
     label: "Inglés",
-    emoji: "🦜",
+    icon: BookOpen,
     color: "#2563EB",
     audio: "English! Let's play!",
     lang: "en-US",
@@ -25,15 +26,15 @@ const MATERIAS = [
   {
     to: "/matematicas" as const,
     label: "Matemáticas",
-    emoji: "🐢",
-    color: "#059669",
+    icon: Divide,
+    color: "#7C3AED",
     audio: "¡Matemáticas! Vamos a contar",
     lang: "es-MX",
   },
   {
     to: "/espanol" as const,
     label: "Español",
-    emoji: "🦋",
+    icon: PenLine,
     color: "#F97316",
     audio: "¡Español! Vamos a jugar",
     lang: "es-MX",
@@ -49,7 +50,11 @@ function TutiHome() {
 
   return (
     <div className="mx-auto flex min-h-[85vh] w-full max-w-lg flex-col items-center justify-center px-4 py-8 text-center">
-      <div className="mb-2 text-7xl">🐢</div>
+      <img
+        src="/icon-tuti-512.png"
+        alt="Tuti, la tortuguita de Costa Rica"
+        className="mb-2 size-24 rounded-full border-4 border-secondary object-cover shadow-crayon"
+      />
       <h1 className="font-display text-4xl font-bold text-primary">TUTI</h1>
       <p className="mb-8 font-display text-lg text-ink-soft">¡Aprendé jugando!</p>
 
@@ -62,7 +67,9 @@ function TutiHome() {
             className="flex items-center gap-4 rounded-3xl border-4 border-transparent p-5 text-left shadow-crayon transition-transform active:scale-95"
             style={{ background: m.color }}
           >
-            <span className="text-5xl">{m.emoji}</span>
+            <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-white/25">
+              <m.icon className="size-8 text-white" aria-hidden />
+            </span>
             <span className="font-display text-2xl font-bold text-white">{m.label}</span>
           </Link>
         ))}

@@ -137,7 +137,7 @@ function LandingPage() {
       <header className="sticky top-0 z-40 border-b border-border/60 bg-paper/85 backdrop-blur safe-top">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
-            <img src="/brand/app-icon.png" alt="" className="h-9 w-9 rounded-xl object-cover" onError={hideImg} />
+            <img src="/icon-tuti-512.png" alt="" className="h-9 w-9 rounded-full object-cover" onError={hideImg} />
             <span className="font-display text-xl font-bold text-primary">Pinta y Aprende</span>
           </div>
           <div className="flex items-center gap-2">
@@ -159,12 +159,12 @@ function LandingPage() {
               Para niños de 3 a 7 años
             </span>
             <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] text-ink sm:text-5xl">
-              Aprender inglés nunca fue tan <span className="text-primary">divertido</span>
+              Inglés, matemáticas y español <span className="text-primary">jugando</span>
             </h1>
             <p className="mt-4 max-w-md text-lg text-ink-soft">
-              Tu hijo aprende inglés <strong className="text-ink">dibujando</strong> con el dedo: escucha cada palabra
-              y la repite jugando. <strong className="text-ink">Fácil y sin frustraciones</strong> — querrá volver a
-              aprender todos los días. Una ventaja que le durará toda la vida.
+              Tu hijo toca la pantalla y empieza a jugar solo, sin necesitar saber leer.{" "}
+              <strong className="text-ink">Tuti, la tortuguita</strong>, y sus amigos de Costa Rica lo acompañan con
+              instrucciones habladas en cada juego. <strong className="text-ink">Sin frustraciones, sin apuro.</strong>
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-primary px-7 py-4 font-display text-lg font-bold text-primary-foreground shadow-crayon active:scale-95">
@@ -181,12 +181,11 @@ function LandingPage() {
           </div>
 
           <div className="relative">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {["butterfly", "lion", "goldfish", "elephant"].map((s, i) => (
-                <img key={s} src={`/landing/${s}-color.png`} alt="" onError={hideImg}
-                  className={`w-full rounded-3xl bg-surface p-2 shadow-crayon ${i % 2 ? "translate-y-4" : ""}`} />
-              ))}
-            </div>
+            <img
+              src="/brand/tuti-poster.png"
+              alt="TUTI: inglés, matemáticas y español jugando"
+              className="w-full rounded-3xl shadow-crayon"
+            />
           </div>
         </div>
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-achievement/20 blur-3xl" />
@@ -196,7 +195,7 @@ function LandingPage() {
       {/* TRUST BAR */}
       <section className="border-y border-border bg-surface">
         <div className="mx-auto grid max-w-4xl grid-cols-3 gap-4 px-4 py-6 text-center">
-          {[["33", "mundos"], ["+630", "dibujos"], ["+600", "palabras en inglés"]].map(([n, l]) => (
+          {[["3", "materias"], ["🇨🇷", "hecho en Costa Rica"], ["₡5000", "pago único"]].map(([n, l]) => (
             <div key={l}>
               <div className="font-display text-3xl font-bold text-primary">{n}</div>
               <div className="text-sm text-ink-soft">{l}</div>
@@ -532,7 +531,7 @@ function LandingPage() {
       <footer className="border-t border-border bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-8 text-sm text-ink-soft sm:flex-row">
           <div className="flex items-center gap-2">
-            <img src="/brand/app-icon.png" alt="" className="h-7 w-7 rounded-lg object-cover" onError={hideImg} />
+            <img src="/icon-tuti-512.png" alt="" className="h-7 w-7 rounded-full object-cover" onError={hideImg} />
             <span className="font-display font-bold text-ink">Pinta y Aprende</span>
           </div>
           <p>Colorea y aprende inglés · 3 a 7 años</p>
