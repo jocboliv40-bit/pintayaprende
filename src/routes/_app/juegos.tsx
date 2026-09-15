@@ -266,7 +266,18 @@ function WhoAmI({ pool }: { pool: Drawing[] }) {
       <Score value={score} />
       <p className="mb-3 text-center font-display text-lg font-bold text-ink">¿Qué animal es esta sombra?</p>
       <div className="mx-auto mb-5 grid aspect-square w-48 place-items-center rounded-3xl bg-surface p-4 shadow-soft">
-        <img src={(solved ? assetUrl(target.line_art_path) : silUrl(target)) ?? ""} alt="" className="h-full w-full object-contain transition-all" />
+        <img
+          src={(solved ? assetUrl(target.line_art_path) : silUrl(target)) ?? ""}
+          alt=""
+          className="h-full w-full object-contain transition-all"
+          onError={(e) => {
+            // No todos los animales tienen todavía una imagen de "sombra"
+            // hecha; mientras se completan, mostramos el dibujo normal para
+            // que el juego nunca se quede en blanco.
+            const fallback = assetUrl(target.line_art_path) ?? "";
+            if (e.currentTarget.src !== fallback) e.currentTarget.src = fallback;
+          }}
+        />
       </div>
       {solved && <p className="mb-3 text-center font-display text-xl font-bold text-secondary">¡Es {target.name_en}! 🎉</p>}
       <div className="grid grid-cols-3 gap-3">
